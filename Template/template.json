@@ -3475,6 +3475,52 @@
           "container": "/config"
         }
       ]
+    },
+    {
+      "categories": ["Other"],
+      "description": "Blocky is a DNS proxy and ad-blocker for the local network written in Go",
+      "env": [
+        {
+          "default": "1000",
+          "label": "PUID",
+          "name": "PUID"
+        },
+        {
+          "default": "100",
+          "label": "PGID",
+          "name": "PGID"
+        }
+      ],
+      "image": "spx01/blocky:latest",
+      "logo": "https://raw.githubusercontent.com/Chappy202/portainer_templates/master/Images/blocky.png",
+      "name": "blocky",
+      "platform": "linux",
+      "ports": [
+        "53:53/tcp",
+        "53:53/udp",
+        "4000:4000/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Blocky",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Blocky/Workdir/logs",
+          "container": "/logs"
+        },
+        {
+          "bind": "/portainer/Files/AppData/Blocky/Workdir/blacklists",
+          "container": "/app/blacklists/"
+        },
+        {
+          "bind": "/portainer/Files/AppData/Blocky/Workdir/whitelists",
+          "container": "/app/whitelists/"
+        },
+        {
+          "bind": "/portainer/Files/AppData/Blocky/Conf/config.yml",
+          "container": "/app/config.yml"
+        }
+      ]
     }
   ]
 }
