@@ -226,7 +226,7 @@
       "volumes": [
         {
           "bind": "/portainer/Files/AppData/Config/Vaultwarden",
-          "container": "/config"
+          "container": "/data"
         }
       ]
     },
@@ -715,7 +715,8 @@
           "bind": "/portainer/Downloads",
           "container": "/downloads"
         }
-      ]
+      ],
+      "ports": ["8112:8112/tcp", "6881:6881/tcp", "6881:6881/udp"]
     },
     {
       "categories": ["HomeAutomation", "Management"],
@@ -2152,7 +2153,7 @@
           "name": "PGID"
         }
       ],
-      "image": "hotio/overseerr:latest",
+      "image": "hotio/overseerr:release",
       "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/overseerr-icon.png",
       "name": "Overseerr",
       "platform": "linux",
@@ -2216,6 +2217,48 @@
       },
       "title": "Owncloud",
       "type": 3
+    },
+    {
+      "categories": ["Other", "Tools"],
+      "description": "Passky is a simple, modern, lightweight, open-source and secure password manager.",
+      "image": "rabbitcompany/passky-client:latest",
+      "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/passky-icon.png",
+      "name": "passky-client",
+      "platform": "linux",
+      "ports": ["8081:80/tcp"],
+      "restart_policy": "unless-stopped",
+      "title": "Passky Client",
+      "type": 1
+    },
+    {
+      "categories": ["Other", "Tools"],
+      "description": "Passky is a simple, modern, lightweight, open-source and secure password manager.",
+      "env": [
+        {
+          "default": "admin",
+          "label": "ADMIN_USERNAME",
+          "name": "ADMIN_USERNAME"
+        },
+        {
+          "label": "ADMIN_PASSWORD",
+          "name": "ADMIN_PASSWORD"
+        }
+      ],
+      "image": "rabbitcompany/passky-server:latest",
+      "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/passky-icon.png",
+      "name": "passky-server",
+      "note": "Do not forget to perform regular backups, especially before each update.",
+      "platform": "linux",
+      "ports": ["8080:80/tcp"],
+      "restart_policy": "unless-stopped",
+      "title": "Passky Server",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Passky-Server",
+          "container": "/var/www/html/databases"
+        }
+      ]
     },
     {
       "categories": ["Other", "Tools"],

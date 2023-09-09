@@ -99,6 +99,8 @@ All templates are already configured to bind mount to various places on your dri
   - Organizr-v2 
   - Overseerr 
   - Owncloud 
+  - Passky Client 
+  - Passky Server 
   - Petio 
   - Photoshow 
   - Pihole 
@@ -132,6 +134,7 @@ All templates are already configured to bind mount to various places on your dri
   - Tvheadend 
   - Ubooquity 
   - Unifi-controller 
+  - Uptime Kuma
   - Watchtower 
   - Webgrabplus 
   - Whoogle 
