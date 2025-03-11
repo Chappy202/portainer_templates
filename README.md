@@ -38,7 +38,8 @@ All templates are already configured to bind mount to various places on your dri
 
   - Adguard 
   - Airsonic 
-  - Authelia 
+  - ArchiSteamFarm
+  - Authelia
   - Bazarr 
   - Beets 
   - Vaultwarden 
@@ -62,6 +63,7 @@ All templates are already configured to bind mount to various places on your dri
   - Filebrowser 
   - Freshrss 
   - Gazee 
+  - Gitea
   - Guacamole 
   - Grocy 
   - Htpcmanager 
@@ -71,7 +73,8 @@ All templates are already configured to bind mount to various places on your dri
   - Huginn 
   - Invoice_ninja 
   - Jackett 
-  - Jellyfin 
+  - Jellyfin
+  - Jellyseerr
   - kodi-headless 
   - Lazylibrarian 
   - Letsencrypt / SWAG 
@@ -132,6 +135,7 @@ All templates are already configured to bind mount to various places on your dri
   - Transmission 
   - Transmission-openvpn 
   - Tvheadend 
+  - Twitch Points Miner
   - Ubooquity 
   - Unifi-controller 
   - Uptime Kuma

@@ -107,6 +107,45 @@
       ]
     },
     {
+      "categories": ["Other", "Tools"],
+      "description": "C# application with primary purpose of farming Steam cards from multiple accounts simultaneously.",
+      "env": [
+        {
+          "default": "1000",
+          "label": "PUID",
+          "name": "PUID"
+        },
+        {
+          "default": "100",
+          "label": "PGID",
+          "name": "PGID"
+        }
+      ],
+      "image": "justarchi/archisteamfarm:latest",
+      "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/ASF.png",
+      "name": "ArchiSteamFarm",
+      "note": "Requires an ASF.json with headless enabled, IPCPassword set and an IPC.config described by the wiki in order to work. Please generate the former <a href='https://justarchinet.github.io/ASF-WebConfigGenerator'>here</a> and copy the latter from <a href='https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#ipc'>here</a>.",
+      "platform": "linux",
+      "ports": ["1242:1242/tcp"],
+      "restart_policy": "unless-stopped",
+      "title": "ArchiSteamFarm",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Config/ArchiSteamFarm/Config",
+          "container": "/app/config"
+        },
+        {
+          "bind": "/portainer/Files/AppData/Config/ArchiSteamFarm/Plugins",
+          "container": "/app/plugins/customplugins"
+        },
+        {
+          "bind": "/portainer/Files/AppData/Config/ArchiSteamFarm/Logs",
+          "container": "/app/logs"
+        }
+      ]
+    },
+    {
       "categories": ["Other", "Tools", "Authentication"],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -973,6 +1012,45 @@
       ]
     },
     {
+      "categories": ["Web","Tools"],
+      "description": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD.",
+      "env": [
+        {
+          "default": "1000",
+          "label": "PUID",
+          "name": "PUID"
+        },
+        {
+          "default": "100",
+          "label": "PGID",
+          "name": "PGID"
+        }
+      ],
+      "image": "gitea/gitea:latest",
+      "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/gitea.png",
+      "name": "gitea",
+      "note": "Use SQLite3 for the database unless you have an external one setup.",
+      "ports": ["3000:3000/tcp", "222:22/tcp"],
+      "platform": "linux",
+      "restart_policy": "unless-stopped",
+      "title": "Gitea",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Config/Gitea",
+          "container": "/data"
+        },
+        {
+          "bind": " /etc/timezone",
+          "container": "/etc/timezone:ro"
+        },
+        {
+          "bind": "/etc/localtime",
+          "container": "/etc/localtime:ro"
+        }
+      ]
+    },
+    {
       "categories": ["Other", "Tools"],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -1290,6 +1368,36 @@
         {
           "bind": "/portainer/Movies",
           "container": "/data/movies"
+        }
+      ]
+    },
+    {
+      "categories": ["Other", "Tools"],
+      "description": "Jellyseer is a free and open source software application for managing requests for your media library.",
+      "env": [
+        {
+          "default": "1000",
+          "label": "PUID",
+          "name": "PUID"
+        },
+        {
+          "default": "100",
+          "label": "PGID",
+          "name": "PGID"
+        }
+      ],
+      "image": "fallenbagel/jellyseerr:latest",
+      "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/jellyseerr.png",
+      "name": "Jellyseerr",
+      "platform": "linux",
+      "ports": ["5055:5055/tcp"],
+      "restart_policy": "unless-stopped",
+      "title": "Jellyseerr",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Config/Jellyseerr",
+          "container": "/app/config"
         }
       ]
     },
@@ -3271,6 +3379,39 @@
         },
         {
           "container": "/recordings"
+        }
+      ]
+    },
+    {
+      "categories": ["Tools", "Other"],
+      "description": "A simple script that will watch a stream for you and earn the channel points.",
+      "image": "rdavidoff/twitch-channel-points-miner-v2:latest",
+      "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/twitchpointsminer.png",
+      "name": "twitch-points-miner",
+      "note": "Requires run.py, this is your starter script with your configuration. Please copy and modify accordingly <a href='https://github.com/rdavydov/Twitch-Channel-Points-Miner-v2/tree/master?tab=readme-ov-file#how-to-use'/>Here</a>",
+      "platform": "linux",
+      "ports": [
+        "5000:5000/tcp"
+      ],
+      "restart_policy": "unless-stopped",
+      "title": "Twitch Points Miner",
+      "type": 1,
+      "volumes": [
+        {
+          "bind": "/portainer/Files/AppData/Config/TwitchPointsMiner/run.py",
+          "container": "/usr/src/app/run.py"
+        },
+        {
+          "bind": "/portainer/Files/AppData/TwitchPointsMiner/cookies",
+          "container": "/usr/src/app/cookies"
+        },
+        {
+          "bind": "/portainer/Files/AppData/TwitchPointsMiner/logs",
+          "container": "/usr/src/app/logs"
+        },
+        {
+          "bind": "/portainer/Files/AppData/TwitchPointsMiner/analytics",
+          "container": "/usr/src/app/analytics"
         }
       ]
     },
